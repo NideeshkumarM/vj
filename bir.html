@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎂 Birthday Surprise 🎉</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(120deg, #6fa3ef, #1f4f8c);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: red;
+      border-radius: 50% 50% 0 0;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 30px;
+      background: white;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-150px);
+        opacity: 0;
+      }
+    }
+
+    .balloon:nth-child(1) { background: #ff6f61; left: 15%; animation-delay: 1s; }
+    .balloon:nth-child(2) { background: #ffc107; left: 35%; animation-delay: 3s; }
+    .balloon:nth-child(3) { background: #8bc34a; left: 55%; animation-delay: 5s; }
+    .balloon:nth-child(4) { background: #2196f3; left: 75%; animation-delay: 7s; }
+
+    /* Butterflies */
+    .butterfly {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-image: url('https://cdn.pixabay.com/photo/2018/10/23/14/33/butterfly-3761123_1280.png');
+      background-size: cover;
+      animation: fly 15s infinite ease-in-out;
+    }
+
+    .butterfly:nth-child(5) { left: 20%; animation-delay: 2s; }
+    .butterfly:nth-child(6) { left: 50%; animation-delay: 4s; }
+    .butterfly:nth-child(7) { left: 80%; animation-delay: 6s; }
+
+    @keyframes fly {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+      }
+    }
+
+    /* Heading Message */
+    .text-message {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      color: black;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Next Button */
+    .next-button {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: white;
+      background: #ff6f61;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Balloons -->
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+
+  <!-- Butterflies -->
+  <div class="butterfly"></div>
+  <div class="butterfly"></div>
+  <div class="butterfly"></div>
+
+  <!-- Birthday Message -->
+  <div class="text-message" id="message">
+    🎉 Surprise! Happy Birthday, Vijay Anna! 🎂
+  </div>
+
+  <!-- Next Button -->
+  <button class="next-button" id="next-button">Next</button>
+
+  <script>
+    const message = document.getElementById('message');
+    const nextButton = document.getElementById('next-button');
+
+    const messages = [
+      "🎈 You're the best brother in the world! 🌟",
+      "🎁 May your day be filled with laughter and love!",
+      "🎉 Cheers to your amazing year ahead!",
+      "🎂 Keep being the incredible person you are!",
+      "🎉 HAPPY BIRTHDAY VIJAY ANNA! 🎉"
+    ];
+
+    let messageIndex = 0;
+
+    nextButton.addEventListener('click', () => {
+      message.textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
